@@ -1,0 +1,1 @@
+Enter the a, b, and c of your quadratic and it calculates the roots! if you don't know what a, b, and c are, it's ax^2 + bx + c. if one of those is not present, it must be zero (so enter that). Beware, this program uses doubles for all calculations, so some accuracy is lost with long decimals. (you should still be good with only a few decimal places, though)
