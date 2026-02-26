@@ -8,7 +8,7 @@
                 "/Zi",
                 "/EHsc",
                 "/nologo",
-                "/Fe${fileDirname}\\$Quadratic-Calculator.exe",
+                "/Fe${fileDirname}\\Quadratic-Calculator.exe",
                 "${workspaceFolder}\\main.cpp",
                 "${workspaceFolder}\\calculator.cpp"
             ],
