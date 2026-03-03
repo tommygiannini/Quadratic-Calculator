@@ -4,15 +4,34 @@
 #include "calculator.h"
 
 std::vector<double> quadCalc(double a, double b, double c) {
-    double disc = b*b - 4*a*c;
-    double sr   = std::sqrt(disc);
-    double denom = 2.0 * a;                  // parentheses matter
-    return { (-b + sr) / denom, (-b - sr) / denom };
+    std::vector<double> roots {};
+
+    if (a == 0) {
+        if (b == 0) {
+            return roots;
+        }
+        roots.push_back(-c / b);
+        return roots;
+    }
+
+    double disc { b*b - 4*a*c };
+    if (disc < 0) {
+        return roots;
+    }
+    roots.push_back((-b + sqrt(disc)) / (2 * a));
+    roots.push_back((-b - sqrt(disc)) / (2 * a));
+    if (roots[0] == roots[1]) {
+        roots.pop_back();
+    }
+    return roots;
 }
 
 void printSolutions(const std::vector<double>& solutions) {
-    if (solutions.size() < 2) {
-        std::cout << "No solutions available\n";
+    if (solutions.size() < 1) {
+        std::cout << "No real roots\n";
+        return;
+    } else if (solutions.size() == 1) {
+        std::cout << "Root:\n    " << solutions[0] << "\n\n";
         return;
     }
     std::cout << "Roots:\n    "
